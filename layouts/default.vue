@@ -33,7 +33,7 @@ const props = defineProps<{
 
         <!-- Sidebar -->
         <aside
-          class="bg-gray-50 dark:bg-gray-900 w-48 lg:w-54 px-3 py-6 border-r border-gray-200 dark:border-gray-800
+          class="w-48 lg:w-58 px-3 py-6 border-r border-gray-200 dark:border-gray-800
             transition-transform transform lg:translate-x-0 fixed lg:static inset-y-0 z-40
             lg:flex flex-col"
           :class="{ '-translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen }"
