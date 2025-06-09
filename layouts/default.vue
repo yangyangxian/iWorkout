@@ -33,25 +33,23 @@ const props = defineProps<{
 
         <!-- Sidebar -->
         <aside
-          class="bg-gray-50 dark:bg-gray-900 w-48 p-4 border-r border-gray-200 dark:border-gray-800
+          class="bg-gray-50 dark:bg-gray-900 w-48 lg:w-54 px-3 py-6 border-r border-gray-200 dark:border-gray-800
             transition-transform transform lg:translate-x-0 fixed lg:static inset-y-0 z-40
             lg:flex flex-col"
           :class="{ '-translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen }"
         >
-          <p class="font-bold text-lg mb-4 hidden lg:block">Dashboard</p>
-          <nav class="space-y-2">
-            <UNavigationMenu
-              orientation="vertical"
-              :items="props.navItems"
-              :ui="{
-                link: 'px-4 py-3 text-base',
-              }"
-            />
-          </nav>
+          <span class="font-bold text-2xl pl-4 mb-4 align-top hidden lg:block">Dashboard</span>
+          <UNavigationMenu     
+            orientation="vertical"
+            :items="props.navItems"
+            :ui="{
+            link: 'px-4 py-2 text-md',
+            }"
+          />
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 p-6 lg:ml-48">
+        <main class="py-6 px-6">
           <NuxtPage />
         </main>
       </div>

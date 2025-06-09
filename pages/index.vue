@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Welcome to your Dashboard!</h1>
-    <p>This is the home page.</p>
-    <UButton>Test Button</UButton>
+    <span class="block">This is the home page.</span>
+    <UButton class="hover:cursor-pointer">Test Button</UButton>
   </div>
 </template> 
