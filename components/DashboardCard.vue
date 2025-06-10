@@ -8,9 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <UCard class="h-full">
+  <UCard :ui="{ header: 'p-2 sm:p-3', body: 'p-2 sm:p-3' }">
     <template #header>
-      <h3 class="text-lg font-semibold">{{ title }}</h3>
+      <div>
+        <p class="text-md font-semibold">{{ title }}</p>
+      </div>
     </template>
     <slot />
   </UCard>
