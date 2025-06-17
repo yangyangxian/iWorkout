@@ -94,3 +94,4 @@ sw.*
 # Vercel
 .vercel
 package-lock.json
+/.vscode

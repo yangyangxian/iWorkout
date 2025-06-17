@@ -14,7 +14,7 @@ const props = defineProps<{
     <div class="min-h-screen flex flex-col">
       <!-- Top bar (mobile) -->
       <div class="lg:hidden flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
-        <div class="text-lg font-semibold">Dashboard</div>
+        <div class="text-lg font-semibold">IWorkout Log</div>
         <UButton
           icon="i-heroicons-bars-3-bottom-left"
           color="primary"
@@ -38,7 +38,7 @@ const props = defineProps<{
             lg:flex flex-col"
           :class="{ '-translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen }"
         >
-          <span class="font-bold text-2xl pl-4 mb-4 align-top hidden lg:block">Dashboard</span>
+          <span class="font-bold text-2xl pl-4 mb-4 align-top hidden lg:block">IWorkout Log</span>
           <UNavigationMenu     
             orientation="vertical"
             :items="props.navItems"
@@ -49,7 +49,7 @@ const props = defineProps<{
         </aside>
 
         <!-- Main content -->
-        <main class="py-6 px-6">
+        <main class="flex-1 py-7 px-6">
           <NuxtPage />
         </main>
       </div>
