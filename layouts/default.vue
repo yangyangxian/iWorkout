@@ -43,7 +43,7 @@ const props = defineProps<{
             orientation="vertical"
             :items="props.navItems"
             :ui="{
-            link: 'px-4 py-2 text-md',
+              link: 'px-4 py-3 text-md',
             }"
           />
         </aside>

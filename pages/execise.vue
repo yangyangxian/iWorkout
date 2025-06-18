@@ -265,24 +265,24 @@ const getFallbackImage = () => {
 
     <!-- Quick Stats -->
     <div class="grid grid-cols-3 gap-3 mb-5">
-      <UCard class="text-center hover:shadow-md transition-shadow py-2 px-3 border border-gray-200 dark:border-gray-800">
+      <UCard class="text-center hover:shadow-md transition-shadow">
         <div class="text-3xl font-bold text-blue-600 mb-1">{{ exercises.length }}</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">Exercises</div>
       </UCard>
       
-      <UCard class="text-center hover:shadow-md transition-shadow py-2 px-3 border border-gray-200 dark:border-gray-800">
+      <UCard class="text-center hover:shadow-md transition-shadow">
         <div class="text-3xl font-bold text-green-600 mb-1">{{ exercises.filter(e => e.equipment === 'Bodyweight').length }}</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">Bodyweight</div>
       </UCard>
       
-      <UCard class="text-center hover:shadow-md transition-shadow py-2 px-3 border border-gray-200 dark:border-gray-800">
+      <UCard class="text-center hover:shadow-md transition-shadow">
         <div class="text-3xl font-bold text-purple-600 mb-1">{{ exercises.filter(e => e.demonstrationImage).length }}</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">With demos</div>
       </UCard>
     </div>
 
     <!-- Exercise Table -->
-    <UCard class="border border-gray-200 dark:border-gray-800">
+    <UCard>
 
       <div v-if="loading" class="space-y-3">
         <!-- Skeleton loader for table rows -->
