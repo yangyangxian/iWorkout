@@ -121,7 +121,7 @@ const loadExercises = async () => {
       'hip thrusts', 'glute bridges', 'russian twists', 'step-ups', 'high knees'
     ];
     
-    // Filter for practical exercises with simple equipment
+    // Filter for
     const filteredExercises = exerciseData.filter(exercise => {
       const name = exercise.name.toLowerCase();
       const equipment = exercise.equipment?.toLowerCase() || '';
@@ -237,8 +237,8 @@ const getFallbackImage = () => {
   <div class="space-y-6 p-1 max-w-full overflow-hidden animate-in fade-in duration-500">
     <!-- Header -->
     <div class="mb-6">
-      <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">💪 Exercise library</h1>
-      <p class="text-sm text-gray-600 dark:text-gray-400">Discover effective exercises for your daily workout</p>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">Exercise library</h1>
+      <p class="text-md text-gray-600 dark:text-gray-400">Discover effective exercises for your daily workout</p>
     </div>
 
     <!-- Search and Filter -->
@@ -248,7 +248,7 @@ const getFallbackImage = () => {
           v-model="searchQuery"
           placeholder="Search exercises..."
           icon="i-heroicons-magnifying-glass"
-          size="lg"
+          size="xl"
           class="w-full"
         />
       </div>
@@ -258,35 +258,16 @@ const getFallbackImage = () => {
           :options="categoryOptions"
           placeholder="Select type"
           size="xl"
-          class="w-full"
+          class="w-full h-full"
         />
       </div>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="grid grid-cols-3 gap-3 mb-5">
-      <UCard class="text-center hover:shadow-md transition-shadow">
-        <div class="text-3xl font-bold text-blue-600 mb-1">{{ exercises.length }}</div>
-        <div class="text-xs text-gray-600 dark:text-gray-400">Exercises</div>
-      </UCard>
-      
-      <UCard class="text-center hover:shadow-md transition-shadow">
-        <div class="text-3xl font-bold text-green-600 mb-1">{{ exercises.filter(e => e.equipment === 'Bodyweight').length }}</div>
-        <div class="text-xs text-gray-600 dark:text-gray-400">Bodyweight</div>
-      </UCard>
-      
-      <UCard class="text-center hover:shadow-md transition-shadow">
-        <div class="text-3xl font-bold text-purple-600 mb-1">{{ exercises.filter(e => e.demonstrationImage).length }}</div>
-        <div class="text-xs text-gray-600 dark:text-gray-400">With demos</div>
-      </UCard>
-    </div>
-
     <!-- Exercise Table -->
     <UCard>
-
       <div v-if="loading" class="space-y-3">
         <!-- Skeleton loader for table rows -->
-        <div v-for="i in 8" :key="i" class="flex items-center space-x-4 p-4 border rounded-lg">
+        <div v-for="i in 8" :key="i" class="flex items-center space-x-4 p-4 rounded-lg">
           <div class="w-28 h-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
           <div class="flex-1 space-y-2">
             <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse"></div>
@@ -308,18 +289,18 @@ const getFallbackImage = () => {
           >
         <!-- Exercise name -->
         <template #exerciseName-cell="{ value }">
-          <div class="font-medium text-gray-900 dark:text-white text-sm py-1">{{ value }}</div>
+          <div class="font-medium text-gray-900 dark:text-white text-md py-1">{{ value }}</div>
         </template>
 
         <!-- Muscles -->
         <template #muscle-cell="{ value }">
-          <div class="text-gray-600 dark:text-gray-400 text-sm py-1">{{ value }}</div>
+          <div class="text-gray-600 dark:text-gray-400 text-md py-1">{{ value }}</div>
         </template>
 
         <!-- Category badge -->
         <template #category-cell="{ value }">
           <div class="py-1">
-            <UBadge :color="getCategoryColor(value)" variant="soft" size="sm">
+            <UBadge :color="getCategoryColor(value)" variant="soft" size="md">
               {{ value }}
             </UBadge>
           </div>
@@ -338,7 +319,7 @@ const getFallbackImage = () => {
 
         <!-- Equipment -->
         <template #equipment-cell="{ value }">
-          <div class="text-sm text-gray-600 dark:text-gray-400 py-1">{{ value }}</div>
+          <div class="text-md text-gray-600 dark:text-gray-400 py-1">{{ value }}</div>
         </template>
 
         <!-- Empty state -->
@@ -352,9 +333,12 @@ const getFallbackImage = () => {
         </div>
       </div>
     </UCard>
+  </div>
 
-    <!-- Enhanced Image Modal -->
-    <UModal v-model="showImageModal">
+  <!-- Enhanced Image Modal -->
+  <Teleport to="body" class="flex items-center justify-center bg-amber-300">
+    <div class="flex items-center justify-center fixed inset-0 z-50 bg-black/70" v-if="showImageModal">
+    <UModal>
       <UCard v-if="selectedExercise" class="max-w-4xl mx-auto shadow-2xl">
         <template #header>
           <div class="flex items-center justify-between pb-2">
@@ -441,5 +425,6 @@ const getFallbackImage = () => {
         </template>
       </UCard>
     </UModal>
-  </div>
+    </div>
+  </Teleport>
 </template>
