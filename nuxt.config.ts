@@ -7,10 +7,14 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.css'
   ],
-  modules: ['@nuxt/ui', '@nuxt/fonts', '@nuxt/icon'],
+  modules: ['@nuxt/ui'],
   devtools: { enabled: true },
   routeRules: {
     // prerender index route by default
     '/': { prerender: true },
   },
+  "ui": {
+    "fonts": false
+  }
+
 });
